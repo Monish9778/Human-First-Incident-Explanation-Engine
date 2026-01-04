@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error Explanation Tool</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Human-First Error Explanation Tool</h1>
+        <p>Paste a technical error message to get a simple explanation.</p>
+
+        <form method="POST">
+            <textarea
+                name="error_message"
+                placeholder="Paste your error message here..."
+                required></textarea>
+
+            <button type="submit">Explain Error</button>
+        </form>
+
+        {% if explanation %}
+        <div class="result">
+            <h3>{{ explanation.type }}</h3>
+
+            <p><strong>❌ What happened:</strong><br>
+                {{ explanation.what }}</p>
+
+            <p><strong>❓ Why it happened:</strong><br>
+                {{ explanation.why }}</p>
+
+            <p><strong>✅ How to fix:</strong><br>
+                {{ explanation.fix }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
